@@ -22,33 +22,7 @@
 ## Быстрый старт
 
 ### 1. Настройка проекта с CMAKE
-
-```cmake
-import qbs
-
-CppApplication {
-    name: "myapp"
-    
-    Depends { name: "rgen" }
-    
-    Group {
-        name: "C++ sources"
-        files: [
-            "main.cpp"
-        ]
-        fileTags: ["cpp"]  
-    }
-    
-    // Заголовочные файлы для обработки rgen
-    Group {
-        name: "rgen sources"
-        files: [
-            "my_struct.h"
-        ]
-        fileTags: [rgen.fileTag]  // Только эти файлы будут обработаны генератором
-    }
-}
-```
+Возьмем за основу [Пример](examples/cmake/simple-example/CMakeLists.txt)
 
 ### 2. Первая аннотация
 Создайте файл my_struct.h:
