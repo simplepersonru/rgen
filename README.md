@@ -21,11 +21,9 @@
 
 ## Быстрый старт
 
-### 1. Настройка проекта с QBS
+### 1. Настройка проекта с CMAKE
 
-В файле проекта `.qbs`:
-
-```qbs
+```cmake
 import qbs
 
 CppApplication {
@@ -184,13 +182,13 @@ RGEN_DERIVE(<access>, <type>, <modules...>)
 
 | Модуль | Аннотация | Назначение | Документация |
 | --- | --- | --- | --- |
-| `Derive` |  @Derive | Базовый модуль для групп генераторов через макрос RGEN_DERIVE | [`Подробнее`](https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/derive/Readme.md)<br> |
-| `Enum` |  @Enum | Двусторонняя конвертация enum <-> string с поддержкой display-имен | [`Подробнее`](https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/enum/Readme.md)<br> |
-| `Json` |  @Json | JSON сериализация с поддержкой кастомных ключей и игнорирования полей | [`Подробнее`](https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/json/Readme.md)<br> |
-| `JsonSchema` |  @JsonSchema | Генерация JSON Schema для валидации структур | [`Подробнее`](https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/json_schema/Readme.md)<br> |
-| `OperatorEquals` |  @OperatorEquals | Генерация операторов == и != | [`Подробнее`](https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/operator_equals/Readme.md)<br> |
-| `OperatorLess` |  @OperatorLess | Генерация оператора < для сортировки | [`Подробнее`](https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/operator_less/Readme.md)<br> |
-| `OperatorQStream` |  @OperatorQStream | Сериализация в QDataStream | [`Подробнее`](https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/operator_qstream/Readme.md)<br> |
-| `Hasher` |  @Hasher | Специализация std::hash для использования в unordered-контейнерах | [`Подробнее`](https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/hasher/Readme.md)<br> |
-| `QHasher` |  @QHasher | Генерация функции qHash() для Qt-контейнеров | [`Подробнее`](https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/qhasher/Readme.md)<br> |
-| `CustomModule` |  --- | Пользовательская команда, указанная в конфигурации | [`Подробнее`](https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/custom_module/Readme.md)<br> |
+| `Derive` |  @Derive | Базовый модуль для групп генераторов через макрос RGEN_DERIVE | [`Подробнее`](https://github.com/simplepersonru/rgen/src/modules/derive/Readme.md)<br> |
+| `Enum` |  @Enum | Двусторонняя конвертация enum <-> string с поддержкой display-имен | [`Подробнее`](https://github.com/simplepersonru/rgen/src/modules/enum/Readme.md)<br> |
+| `Json` |  @Json | JSON сериализация с поддержкой кастомных ключей и игнорирования полей | [`Подробнее`](https://github.com/simplepersonru/rgen/src/modules/json/Readme.md)<br> |
+| `JsonSchema` |  @JsonSchema | Генерация JSON Schema для валидации структур | [`Подробнее`](https://github.com/simplepersonru/rgen/src/modules/json_schema/Readme.md)<br> |
+| `OperatorEquals` |  @OperatorEquals | Генерация операторов == и != | [`Подробнее`](https://github.com/simplepersonru/rgen/src/modules/operator_equals/Readme.md)<br> |
+| `OperatorLess` |  @OperatorLess | Генерация оператора < для сортировки | [`Подробнее`](https://github.com/simplepersonru/rgen/src/modules/operator_less/Readme.md)<br> |
+| `OperatorQStream` |  @OperatorQStream | Сериализация в QDataStream | [`Подробнее`](https://github.com/simplepersonru/rgen/src/modules/operator_qstream/Readme.md)<br> |
+| `Hasher` |  @Hasher | Специализация std::hash для использования в unordered-контейнерах | [`Подробнее`](https://github.com/simplepersonru/rgen/src/modules/hasher/Readme.md)<br> |
+| `QHasher` |  @QHasher | Генерация функции qHash() для Qt-контейнеров | [`Подробнее`](https://github.com/simplepersonru/rgen/src/modules/qhasher/Readme.md)<br> |
+| `CustomModule` |  --- | Пользовательская команда, указанная в конфигурации | [`Подробнее`](https://github.com/simplepersonru/rgen/src/modules/custom_module/Readme.md)<br> |

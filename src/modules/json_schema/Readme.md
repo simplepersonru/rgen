@@ -75,7 +75,7 @@ TEST(JsonSchema, DocTest)
 ```
 
 Сгенерируемый код для данного случая:
-- [`jsonschema_test.rgen.cxx`](https://gitea.redkit-lab.work/redkit-lab/redkit-gen/src/branch/master/src/tests/doc_tests/jsonschema_test.rgen.cxx) <br>
+- [`jsonschema_test.rgen.cxx`](https://github.com/simplepersonru/rgen/src/tests/doc_tests/jsonschema_test.rgen.cxx) <br>
 
 Тест можно запустить через:
-- [`Тесты для документации`](https://gitea.redkit-lab.work/redkit-lab/redkit-gen/src/branch/master/src/tests/doc_tests/CMakeLists.txt)
+- [`Тесты для документации`](https://github.com/simplepersonru/rgen/src/tests/doc_tests/CMakeLists.txt)

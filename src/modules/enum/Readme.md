@@ -88,7 +88,7 @@ enum NumberUsingTest
 /// @Enum
 using NumberUsing = NumberUsingTest;
 ```
- Примеры взяты из реальных тестов для данного модуля - [`Базовые примеры enum`](https://gitea.redkit-lab.work/redkit-lab/redkit-gen/src/branch/master/src/modules/enum/test/custom_names.h)
+ Примеры взяты из реальных тестов для данного модуля - [`Базовые примеры enum`](https://github.com/simplepersonru/rgen/src/modules/enum/test/custom_names.h)
  
 4. Enum в структуре
 ```cpp
@@ -131,7 +131,7 @@ struct Book
 }
 ```
 
-Примеры взяты из реальных тестов для данного модуля - [`Сложные случаи вложенности`](https://gitea.redkit-lab.work/redkit-lab/redkit-gen/src/branch/master/src/modules/enum/test/misc_enum_places.h)
+Примеры взяты из реальных тестов для данного модуля - [`Сложные случаи вложенности`](https://github.com/simplepersonru/rgen/src/modules/enum/test/misc_enum_places.h)
 ### Использование:
 ```cpp
 /// @Enum
@@ -168,7 +168,7 @@ TEST(Enum, DisplayName)
 ```
 
 Сгенерируемый код для данного случая:
-- [`enum_test.rgen.cxx`](https://gitea.redkit-lab.work/redkit-lab/redkit-gen/src/branch/master/src/tests/doc_tests/enum_test.rgen.cxx) <br>
+- [`enum_test.rgen.cxx`](https://github.com/simplepersonru/rgen/src/tests/doc_tests/enum_test.rgen.cxx) <br>
 
 Тест можно запустить через:
-- [`Тесты для документации`](https://gitea.redkit-lab.work/redkit-lab/redkit-gen/src/branch/kb/93623/src/tests/doc_tests/CMakeLists.txt)
+- [`Тесты для документации`](https://github.com/simplepersonru/rgen/src/tests/doc_tests/CMakeLists.txt)

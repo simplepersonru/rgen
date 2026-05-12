@@ -92,8 +92,8 @@ Product {
 
 Использование в коде (main.cpp):
 Сгенерируемый код для данного случая:
-- [`custom_module.test.hxx`](https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/examples/qbs/simple-example/mylib/custom_module.test.hxx)
-- [`custom_module.test.cxx`](https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/examples/qbs/simple-example/mylib/custom_module.test.cxx) <br>
+- [`custom_module.test.hxx`](https://github.com/simplepersonru/rgen/examples/qbs/simple-example/mylib/custom_module.test.hxx)
+- [`custom_module.test.cxx`](https://github.com/simplepersonru/rgen/examples/qbs/simple-example/mylib/custom_module.test.cxx) <br>
 
 Тест можно запустить через:
-- [`Тесты для документации`](https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/examples/qbs/simple-example/simple-example.qbs)
+- [`Тесты для документации`](https://github.com/simplepersonru/rgen/examples/qbs/simple-example/simple-example.qbs)

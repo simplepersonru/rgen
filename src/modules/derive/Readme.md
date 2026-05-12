@@ -22,12 +22,12 @@ RGEN_DERIVE(<access>, <type>, <modules...>)
   
 ### Поддерживаемые модули 
 
-[`RGEN_Equals`](https://gitea.redkit-lab.work/redkit-lab/redkit-gen/src/branch/master/src/modules/operator_equals/Readme.md)<br>
-[`RGEN_Less`](https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/operator_less/Readme.md)<br>
-[`RGEN_QStream `](https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/operator_qstream/Readme.md)<br>
-[`RGEN_Json`](https://gitea.redkit-lab.work/redkit-lab/redkit-gen/src/branch/master/src/modules/json/Readme.md)<br>
-[`RGEN_Hasher`](https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/hasher/Readme.md)<br>
-[`RGEN_QHasher`](https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/qhasher/Readme.md)<br>
+[`RGEN_Equals`](https://github.com/simplepersonru/rgen/src/modules/operator_equals/Readme.md)<br>
+[`RGEN_Less`](https://github.com/simplepersonru/rgen/src/modules/operator_less/Readme.md)<br>
+[`RGEN_QStream `](https://github.com/simplepersonru/rgen/src/modules/operator_qstream/Readme.md)<br>
+[`RGEN_Json`](https://github.com/simplepersonru/rgen/src/modules/json/Readme.md)<br>
+[`RGEN_Hasher`](https://github.com/simplepersonru/rgen/src/modules/hasher/Readme.md)<br>
+[`RGEN_QHasher`](https://github.com/simplepersonru/rgen/src/modules/qhasher/Readme.md)<br>
 
 ### @Ignore
 @Ignore позволяет исключить конкретные поля структуры из сгенерированного кода:
@@ -131,7 +131,7 @@ template struct StructTemplateNamespace<int>;
 }
 ```
 
- Примеры взяты из реальных тестов для данного модуля - [`Тесты Derive`](https://gitea.redkit-lab.work/redkit-lab/redkit-gen/src/branch/master/src/modules/derive/test/test_operator.h)
+ Примеры взяты из реальных тестов для данного модуля - [`Тесты Derive`](https://github.com/simplepersonru/rgen/src/modules/derive/test/test_operator.h)
 
 ### Использование:
 ```cpp
@@ -146,8 +146,8 @@ struct TestStruct
 ```
 
 Сгенерируемый код для данного случая:
-- [`derive_test.rgen.hxx`](https://gitea.redkit-lab.work/redkit-lab/redkit-gen/src/branch/master/src/tests/doc_tests/derive_test.rgen.hxx)
-- [`derive_test.rgen.cxx`](https://gitea.redkit-lab.work/redkit-lab/redkit-gen/src/branch/master/src/tests/doc_tests/derive_test.rgen.cxx) <br>
+- [`derive_test.rgen.hxx`](https://github.com/simplepersonru/rgen/src/tests/doc_tests/derive_test.rgen.hxx)
+- [`derive_test.rgen.cxx`](https://github.com/simplepersonru/rgen/src/tests/doc_tests/derive_test.rgen.cxx) <br>
 
 Тест можно запустить через:
-- [`Тесты для документации`](https://gitea.redkit-lab.work/redkit-lab/redkit-gen/src/branch/master/src/tests/doc_tests/CMakeLists.txt)
+- [`Тесты для документации`](https://github.com/simplepersonru/rgen/src/tests/doc_tests/CMakeLists.txt)
