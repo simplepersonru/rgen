@@ -22,7 +22,7 @@
 ## Быстрый старт
 
 ### 1. Настройка проекта с CMAKE
-Возьмем за основу [Пример](examples/cmake/simple-example/CMakeLists.txt)
+Возьмем за основу [Пример](examples/cmake/simple-example/)
 
 ### 2. Первая аннотация
 Создайте файл my_struct.h:
