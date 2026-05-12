@@ -1,0 +1,55 @@
+/* ····························
+//     _ __ __ _  ___ _ __    
+//    | '__/ _` |/ _ \ '_ \   
+//    | | | (_| |  __/ | | |  
+//    |_|  \__, |\___|_| |_|  
+//         |___/              
+// ····························
+//   
+//   module:          OperatorEquals
+//   source:          {{ header_filename_full }}
+//   module doc:      https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/operator_equals/Readme.md
+//   about rgen:      https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/README.md
+//
+//   [AUTO-GENERATED]
+//   ! DO NOT EDIT !
+//   
+// ····························
+*/
+
+#include <rgen/common/comparison.h> // для сравнений
+
+#include "{{ header_filename_full }}" // Полный путь к заголовочнику
+
+{% for class in classes %}
+
+{% if length(class.namespace_) > 0  %}
+namespace {{ class.namespace_ }} {
+{% endif %}
+
+bool operator==(const {{ class.name }}& lhs, const {{ class.name }}& rhs)
+{
+    (void)lhs;
+    (void)rhs;
+    bool equals_bases = true;
+{%- for base in class.bases -%}
+        equals_bases &= static_cast<const {{ base.name }}&>(lhs) == static_cast<const {{ base.name }}&>(rhs);
+{%- endfor -%}
+
+    bool equals_fields = true;
+{%- for field in class.fields -%}
+        equals_fields &= rgen::equals(lhs.{{ field.name }}, rhs.{{ field.name }});
+{%- endfor -%}
+
+    return equals_bases && equals_fields;
+}
+
+bool operator!=(const {{ class.name }}& lhs, const {{ class.name }}& rhs) {
+    return !(lhs == rhs);
+}
+
+{% if length(class.namespace_) > 0  %}
+} // namespace {{ class.namespace_ }}
+{% endif %}
+
+{% endfor %}

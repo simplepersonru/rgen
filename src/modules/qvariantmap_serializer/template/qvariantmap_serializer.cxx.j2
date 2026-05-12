@@ -1,0 +1,65 @@
+/* ····························
+//     _ __ __ _  ___ _ __    
+//    | '__/ _` |/ _ \ '_ \   
+//    | | | (_| |  __/ | | |  
+//    |_|  \__, |\___|_| |_|  
+//         |___/              
+// ····························
+//   
+//   module:          QVariantMapSerializer
+//   source:          {{ header_filename_full }}
+//   module doc:      https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/qvariantmap_serializer/Readme.md
+//   about rgen:      https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/README.md
+//
+//   [AUTO-GENERATED]
+//   ! DO NOT EDIT !
+//   
+// ····························
+*/
+
+#include <rgen/common/export_macro.h>
+#include <rgen/qvariantmap_serializer.h>
+
+#include "{{ header_filename_full }}" // Полный путь к заголовочнику
+
+{% for class in classes %}
+
+template<>
+RGEN_DECL_EXPORT void fromTypeToVariant(QVariant& variant, const {{ class.nameWithNamespace }}& val)
+{
+    (void)val;
+    auto map = variant.toMap();
+{%- for base in class.bases -%}
+    {
+        QVariant baseVariant;
+        fromTypeToVariant(baseVariant, static_cast<const {{ base.nameWithNamespace }}&>(val));
+        auto baseMap = baseVariant.toMap();
+        for (auto it = baseMap.constBegin(); it != baseMap.constEnd(); it++)
+        {
+            map.insert(it.key(), it.value());
+        }
+    }
+{%- endfor -%}
+{%- for field in class.fields -%}
+    fromTypeToVariant(map[QStringLiteral("{{ field.name }}")], val.{{ field.name }});
+{%- endfor -%}
+    variant = QVariant::fromValue(map);
+}
+
+template<>
+RGEN_DECL_EXPORT void fromVariantToType(const QVariant& variant, {{ class.nameWithNamespace }}& val)
+{
+    (void)val;
+    auto map = variant.toMap();
+{%- for base in class.bases -%}
+    {
+        QVariant baseVariant = QVariant::fromValue(map);
+        fromVariantToType(baseVariant, static_cast<{{ base.nameWithNamespace }}&>(val));
+    }
+{%- endfor -%}
+{%- for field in class.fields -%}
+    fromVariantToType(map[QStringLiteral("{{ field.name }}")], val.{{ field.name }});
+{%- endfor -%}
+}
+
+{% endfor %}

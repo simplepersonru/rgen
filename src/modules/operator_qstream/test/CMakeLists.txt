@@ -1,0 +1,7 @@
+set(TEST_PROJECT_NAME ${MODULE_NAME}_test)
+
+file(GLOB_RECURSE GEN_HEADERS CONFIGURE_DEPENDS "*.h")
+
+rgen_test_generate(${TEST_PROJECT_NAME} GEN_HEADERS MODULE_NAME)
+
+include_directories(../../_test_utils/fakeInclude)

@@ -1,0 +1,56 @@
+/* ····························
+//     _ __ __ _  ___ _ __    
+//    | '__/ _` |/ _ \ '_ \   
+//    | | | (_| |  __/ | | |  
+//    |_|  \__, |\___|_| |_|  
+//         |___/              
+// ····························
+//   
+//   module:          Json
+//   source:          {{ header_filename_full }}
+//   module doc:      https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/json/Readme.md
+//   about rgen:      https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/README.md
+//
+//   [AUTO-GENERATED]
+//   ! DO NOT EDIT !
+//   
+// ····························
+*/
+
+#include <rgen/common/export_macro.h>
+#include <rgen/json_cpp.h>
+
+#include "{{ header_filename_full }}" // Полный путь к заголовочнику
+#include "{{ header_filename_full_hxx }}" // Полный путь к сгенерированному заголовочнику
+
+{% for class in classes -%}
+
+template<>
+RGEN_DECL_EXPORT void fromTypeToJson(rgen::json& json, const {{ class.nameWithNamespace }}& val)
+{
+(void)json;
+(void)val;
+{% for base in class.bases -%}
+    fromTypeToJson(json, static_cast<const {{ base.nameWithNamespace }}&>(val));
+{% endfor -%}
+
+{% for field in class.fields -%}
+    fromTypeToJson(json["{{ field.key }}"], val.{{ field.name }});
+{% endfor -%}
+}
+
+template<>
+RGEN_DECL_EXPORT void fromJsonToType(const rgen::json& json, {{ class.nameWithNamespace }}& val)
+{
+(void)json;
+(void)val;
+{% for base in class.bases -%}
+    fromJsonToType(json, static_cast<{{ base.nameWithNamespace }}&>(val));
+{% endfor -%}
+
+{% for field in class.fields -%}
+    fromJsonToType(json["{{ field.key }}"], val.{{ field.name }});
+{% endfor -%}
+}
+
+{% endfor -%}

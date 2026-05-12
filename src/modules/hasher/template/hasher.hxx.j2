@@ -1,0 +1,42 @@
+/* ····························
+//     _ __ __ _  ___ _ __    
+//    | '__/ _` |/ _ \ '_ \   
+//    | | | (_| |  __/ | | |  
+//    |_|  \__, |\___|_| |_|  
+//         |___/              
+// ····························
+//   
+//   module:          Hasher
+//   source:          {{ header_filename_full }}
+//   module doc:      https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/hasher/Readme.md
+//   about rgen:      https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/README.md
+//
+//   [AUTO-GENERATED]
+//   ! DO NOT EDIT !
+//   
+// ····························
+*/
+
+#include <rgen/common/hash_combine.h>
+
+#include "{{ header_filename_full }}" // Полный путь к заголовочнику
+
+{% for class in classes %}
+
+template <>
+struct std::hash<{{ class.nameWithNamespace }}>
+{
+    std::size_t operator() (const {{ class.nameWithNamespace }}& name) const
+    {
+        (void)name;
+        std::size_t seed = 0;
+        rgen::hash_combine(seed
+    {%- for field in class.fields -%}
+        , name.{{ field.name }}
+    {%- endfor -%}
+        );
+        return seed;
+    }
+};
+
+{% endfor %}

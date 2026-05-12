@@ -1,0 +1,54 @@
+/* ····························
+//     _ __ __ _  ___ _ __    
+//    | '__/ _` |/ _ \ '_ \   
+//    | | | (_| |  __/ | | |  
+//    |_|  \__, |\___|_| |_|  
+//         |___/              
+// ····························
+//   
+//   module:          OperatorLess
+//   source:          {{ header_filename_full }}
+//   module doc:      https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/operator_less/Readme.md
+//   about rgen:      https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/README.md
+//
+//   [AUTO-GENERATED]
+//   ! DO NOT EDIT !
+//   
+// ····························
+*/
+
+#include <tuple> // для std::make_tuple
+
+#include "{{ header_filename_full }}" // Полный путь к заголовочнику
+
+{% for class in classes %}
+
+{% if length(class.namespace_) > 0  %}
+namespace {{ class.namespace_ }} {
+{% endif %}
+
+bool operator<(const {{ class.name }}& lhs, const {{ class.name }}& rhs) {
+    (void)lhs;
+    (void)rhs;
+    return std::make_tuple(
+{%- for base in class.bases -%}
+        static_cast<const {{ base.name }}&>(lhs){% if not loop.is_last or length(class.fields) > 0 %},{% endif %}
+{%- endfor -%}
+{%- for field in class.fields -%}
+        lhs.{{ field.name }}{% if not loop.is_last %},{% endif %}
+{%- endfor -%}
+    ) < std::make_tuple(
+{%- for base in class.bases -%}
+        static_cast<const {{ base.name }}&>(rhs){% if not loop.is_last or length(class.fields) > 0 %},{% endif %}
+{%- endfor -%}
+{%- for field in class.fields -%}
+        rhs.{{ field.name }}{% if not loop.is_last %},{% endif %}
+{%- endfor -%}
+    );
+}
+
+{% if length(class.namespace_) > 0  %}
+} // namespace {{ class.namespace_ }}
+{% endif %}
+
+{% endfor %}

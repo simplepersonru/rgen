@@ -1,0 +1,296 @@
+---
+Language: Cpp
+
+#https://releases.llvm.org/14.0.0/tools/clang/docs/ClangFormatStyleOptions.html
+
+#Особый отступ для модификаторов видимости (на уровне с 'class')
+AccessModifierOffset: -4
+
+#Выравнивание аргументов после открытия скобки
+AlignAfterOpenBracket: Align
+
+#Выравнивание элементов в {}, когда несколько строк друг под другом
+#Настройка забирает гибкость, пока от нее отказываемся
+AlignArrayOfStructures: None
+
+#Выравнивание после =, когда несколько строк друг под другом
+AlignConsecutiveAssignments: None
+
+#Выравнивание значений битовых полей
+AlignConsecutiveBitFields: None
+
+#Выравнивание деклараций имен, когда несколько строк друг под другом
+AlignConsecutiveDeclarations: None
+
+#Выравнивание значений дефайнов, когда несколько строк друг под другом
+AlignConsecutiveMacros: AcrossComments
+
+#Выравнивание бэкслешей в макросах
+AlignEscapedNewlines: Left
+
+#Выравнивание операторов (так себе настройка)
+AlignOperands: DontAlign
+
+#Выравнивание комментов, когда несколько строк друг под другом
+AlignTrailingComments: true
+
+#Если вызов функции или список инициализаторов в фигурных скобках 
+#не помещается на одной строке, разрешите помещать все аргументы
+# на следующую строку, даже если BinPackArguments имеет значение false.
+AllowAllArgumentsOnNextLine: false
+
+#Если объявление функции не помещается на одной строке, разрешите 
+# помещать все аргументы на следующую строку, даже если 
+# BinPackArguments имеет значение false.
+AllowAllParametersOfDeclarationOnNextLine: false
+
+#Если в {} нет выражений, то закрывающая скобка рядом с открывающей, без переноса: {}
+AllowShortBlocksOnASingleLine: Empty
+
+#Запрещаем мультилайн в кейзах свича
+AllowShortCaseLabelsOnASingleLine: false
+
+#Запрещаем мультилайн в enum
+AllowShortEnumsOnASingleLine: false
+
+#В классах однострочные функции всегда single-line
+#Свободные функции всегда НЕ single-line
+#Функции без тела всегда single-line
+AllowShortFunctionsOnASingleLine: Inline
+
+#Запрет single-line if-конструкций
+AllowShortIfStatementsOnASingleLine: Never
+
+#Можно воротить лямбды как душе угодно
+AllowShortLambdasOnASingleLine: All
+
+#Запрет single-line циклов
+AllowShortLoopsOnASingleLine: false
+
+#Разрыв строки после возвращаемого типа объявляемой функции
+AlwaysBreakAfterReturnType: None
+
+#Если true, всегда разрывать строку перед многострочными строковыми литералами.
+AlwaysBreakBeforeMultilineStrings: false
+
+#Всегда перенос строки после обьявления шаблона
+AlwaysBreakTemplateDeclarations: Yes
+
+#DisableFormat: false
+
+#Если false, аргументы вызова функции будут либо все в одной строке, 
+#либо будут иметь по одной строке каждый.
+# ВАЖНО! с true получается гибкая настройка
+BinPackArguments: true 
+
+#Если false, параметры объявления функции или определения функции будут 
+#либо все в одной строке, либо будут иметь по одной строке каждый.
+# ВАЖНО! с true получается гибкая настройка
+BinPackParameters: true
+
+#Добавляет по одному пробелу с каждой стороны : (для битового поля)
+BitFieldColonSpacing: Both
+
+#Правило переноса строки перед фигурными скобками (и не только)
+BreakBeforeBraces: Custom
+BraceWrapping:
+    AfterEnum: true	
+    AfterStruct: true
+    AfterFunction: true
+    AfterCaseLabel: true
+    AfterClass: true
+    AfterControlStatement: true
+    AfterNamespace: true
+    AfterUnion: true
+    AfterExternBlock: true
+    BeforeElse: true
+    BeforeCatch: true
+    BeforeLambdaBody: false
+    SplitEmptyNamespace: false
+    BeforeWhile: false
+    SplitEmptyFunction: false
+    SplitEmptyRecord: false
+    SplitEmptyNamespace: true
+
+#При переносе операторы с левого края, но = остается на своей строке
+BreakBeforeBinaryOperators: NonAssignment
+
+#Если true, концепт будет помещен на новую строку.
+BreakBeforeConceptDeclarations: true
+
+#Операторы тернарного операторы с левого края (при переносе)
+BreakBeforeTernaryOperators: true
+
+#При инициализации в конструкторе ':' и ',' не переносятся
+BreakConstructorInitializers: AfterColon
+
+#При наследовании классов ':' и ',' не переносятся
+BreakInheritanceList: AfterComma
+
+#Разрешить разрыв строковых литералов при форматировании.
+BreakStringLiterals: false
+
+#Ограничение по ширине исходников
+ColumnLimit: 0
+
+#Если true, последовательные объявления пространств имен будут находиться в одной строке. 
+#Если false, каждое пространство имен объявляется в новой строке.
+CompactNamespaces: false
+
+#Количество символов, используемых для отступа в списках инициализаторов конструктора, 
+#а также в списках наследования.
+ConstructorInitializerIndentWidth: 4
+
+#Отступ от продолжения выражения после переноса строки
+#Используется при выравнивании длинных макросов по левому краю
+ContinuationIndentWidth:  0
+
+#Пробелы в { 1, 2, 3 } перед первым и после последнего элемента
+Cpp11BracedListStyle: false
+
+#Если true, анализирует отформатированный файл на предмет
+#наиболее распространенного выравнивания & и *
+DerivePointerAlignment: false
+
+#Если нужно полностью отключить форматирование (зачем??)
+DisableFormat: false
+
+#Пропуск строки ПОСЛЕ модификатора доступа (например, public:)
+EmptyLineAfterAccessModifier: Never
+
+#Пропуск строки ДО модификатора доступа (например, public:)
+EmptyLineBeforeAccessModifier: LogicalBlock
+
+#Экспериментировать с экспериментальными настройками не будем
+#ExperimentalAutoDetectBinPacking: false
+
+#Комменты после namespace
+FixNamespaceComments: true
+
+#Сортировка инклюдов - каждая секция (разделенная пустой строкой) сортируется лексикографически
+IncludeBlocks: Preserve
+
+#Сложная ненужная настройка отступов модификаторов доступа - при true
+# будет игнорировать AccessModifierOffset
+IndentAccessModifiers: false
+
+#Дополнительный отступ у {} после case: в switch-операторе. Выглядит страшно, поэтому false
+IndentCaseBlocks: false
+
+#Отступ у ключевого слова case в switch. при false case и switch на одном уровне
+IndentCaseLabels: false
+
+#Выравнивание тела extern-секции
+IndentExternBlock: NoIndent
+
+#Выравнивание goto лэйблов
+IndentGotoLabels: false
+
+#Выравнивание вложенных препроцессорных директив
+IndentPPDirectives: None 
+
+#Сделать отступ для пункта required в шаблоне
+IndentRequires: false
+
+#Отступы, пробелов
+IndentWidth: 4
+
+#При длинной сигнатуре функции можно перенести имя на новую строку без доп. отступов
+IndentWrappedFunctionNames: false
+
+#Делать пропуск строки после начала блока { }
+KeepEmptyLinesAtTheStartOfBlocks: false
+
+#Выравнивание тела лямбды
+LambdaBodyIndentation: OuterScope
+
+#Максимум пустых строк подряд
+MaxEmptyLinesToKeep: 1
+
+#Отступы у тел вложенных namespace's
+NamespaceIndentation: None
+
+#Количество столбцов, используемых для отступов операторов препроцессора.
+#Настройка не используется
+#PPIndentWidth: 10
+
+#Порядок в списке инициализации. BinPack дает гибкость в настройке
+PackConstructorInitializers: BinPack
+
+#PenaltyBreak настройки непонятно че делают вообще.. не используется
+
+#Выравнивание * и & к типу 'int* num'
+PointerAlignment: Left
+
+#Не используется:
+#QualifierAlignment 
+#QualifierOrder
+#RawStringFormats
+
+#Выравнивание ссылки, как и указателя: int& obj
+ReferenceAlignment: Pointer
+
+#Перенос длинных комментов
+ReflowComments: false
+
+#Удалять {} у if, for, ... где их можно опустить (single-line тело)
+#false - не удаляем
+RemoveBracesLLVM: false
+
+#Указывает использование пустых строк для разделения блоков определения,
+#включая классы, структуры, перечисления и функции.
+#Leave - гибкая настройка. Оставить как есть
+SeparateDefinitionBlocks: Leave
+
+#Максимальное количество развернутых строк, которые охватывает короткое пространство имен.
+ShortNamespaceLines: 5
+
+#При сортировке инклюдов учитывать регистр
+SortIncludes: CaseSensitive
+
+#Если true, clang-format будет сортировать using-декларации
+SortUsingDeclarations: false
+
+#Пробел после CStyle cast (int) a;
+SpaceAfterCStyleCast: false
+
+#пробел после '!' в логических условиях 
+SpaceAfterLogicalNot: false
+
+#Пробел после ключевого слова template
+SpaceAfterTemplateKeyword: true
+
+#Пробелы после PointerQualifiers
+# Default - также как в PointerAlignment
+SpaceAroundPointerQualifiers: Default
+
+#Пробел перед '='
+SpaceBeforeAssignmentOperators: true
+
+#Пробел после case colon:  (case 1 : ) 
+#false - (case 1:)
+SpaceBeforeCaseColon: false
+
+#Если значение равно true, перед списком в фигурных скобках C++11, 
+#используемым для инициализации объекта, будет вставлен пробел 
+#(после предшествующего идентификатора или типа).
+SpaceBeforeCpp11BracedList: true
+
+#Если false, пробелы будут удалены перед двоеточием инициализатора конструктора.
+SpaceBeforeCtorInitializerColon: true
+
+#Если false, пробелы будут удалены перед двоеточием наследования.
+SpaceBeforeInheritanceColon: true
+
+#Определяет, в каких случаях ставить пробел перед открывающими скобками.
+# ControlStatements ставит пробел перед открывающими скобками только 
+# после ключевых слов (for/if/while...).
+SpaceBeforeParens: ControlStatements
+
+#Если false, пробелы будут удалены перед двоеточием цикла range-based fr.
+SpaceBeforeRangeBasedForLoopColon: true
+
+#Если true, вокруг условий if/for/switch/while будут вставлены пробелы.
+SpacesInConditionalStatement: false
+
+---

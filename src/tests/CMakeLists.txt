@@ -1,0 +1,4 @@
+add_subdirectory(functional)
+add_subdirectory(general_functionality)
+add_subdirectory(doc_tests)
+add_subdirectory(inheritance_tests)

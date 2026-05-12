@@ -1,0 +1,60 @@
+/* ····························
+//     _ __ __ _  ___ _ __    
+//    | '__/ _` |/ _ \ '_ \   
+//    | | | (_| |  __/ | | |  
+//    |_|  \__, |\___|_| |_|  
+//         |___/              
+// ····························
+//   
+//   module:          OperatorQStream
+//   source:          {{ header_filename_full }}
+//   module doc:      https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/operator_qstream/Readme.md
+//   about rgen:      https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/README.md
+//
+//   [AUTO-GENERATED]
+//   ! DO NOT EDIT !
+//   
+// ····························
+*/
+
+#include "{{ header_filename_full }}" // Полный путь к заголовочнику
+
+#include <rcore/serializeutils.h> // для std::optional
+
+{% for class in classes %}
+
+{% if length(class.namespace_) > 0  %}
+namespace {{ class.namespace_ }} {
+{% endif %}
+
+QDataStream& operator<<(QDataStream& stream, const {{ class.name }}& sett)
+{
+(void)sett;
+return stream
+{%- for base in class.bases -%}
+    << static_cast<const {{ base.name }}&>(sett)
+{%- endfor -%}
+{%- for field in class.fields -%}
+    << sett.{{ field.name }}
+{%- endfor -%}
+    ;
+}
+
+QDataStream& operator>>(QDataStream& stream, {{ class.name }}& sett)
+{
+(void)sett;
+return stream
+{%- for base in class.bases -%}
+    >> static_cast<{{ base.name }}&>(sett)
+{%- endfor -%}
+{%- for field in class.fields -%}
+    >> sett.{{ field.name }}
+{%- endfor -%}
+    ;
+}
+
+{% if length(class.namespace_) > 0  %}
+} // namespace {{ class.namespace_ }}
+{% endif %}
+
+{% endfor %}

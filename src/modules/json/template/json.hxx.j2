@@ -1,0 +1,36 @@
+/* ····························
+//     _ __ __ _  ___ _ __    
+//    | '__/ _` |/ _ \ '_ \   
+//    | | | (_| |  __/ | | |  
+//    |_|  \__, |\___|_| |_|  
+//         |___/              
+// ····························
+//   
+//   module:          Json
+//   source:          {{ header_filename_full }}
+//   module doc:      https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/json/Readme.md
+//   about rgen:      https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/README.md
+//
+//   [AUTO-GENERATED]
+//   ! DO NOT EDIT !
+//   
+// ····························
+*/
+
+#include <rgen/private/json_pre.h>
+
+#include <string>
+
+#include "{{ header_filename_full }}" // Полный путь к заголовочнику
+
+{% for class in classes %}
+
+template<>
+struct rgen::JsonKeys<{{ class.nameWithNamespace }}>
+{
+{% for field in class.fields -%}
+    std::string {{ field.name }} = "{{ field.key }}";
+{% endfor -%}
+};
+
+{% endfor %}

@@ -1,0 +1,9 @@
+file(GLOB EXPORT_FILES "cmake/*" "include/**/*")
+add_custom_target(export_files SOURCES ${EXPORT_FILES})
+
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/cmake/ DESTINATION ${CMAKE_INSTALL_PREFIX}/cmake/)
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION ${CMAKE_INSTALL_PREFIX}/include/)
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/libs/ DESTINATION ${CMAKE_INSTALL_PREFIX}/libs/)
+
+# Копируем инклуды для тестов
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION ${CMAKE_BINARY_DIR}/include)

@@ -1,0 +1,46 @@
+/* ····························
+//     _ __ __ _  ___ _ __    
+//    | '__/ _` |/ _ \ '_ \   
+//    | | | (_| |  __/ | | |  
+//    |_|  \__, |\___|_| |_|  
+//         |___/              
+// ····························
+//   
+//   module:          QHasher
+//   source:          {{ header_filename_full }}
+//   module doc:      https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/qhasher/Readme.md
+//   about rgen:      https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/README.md
+//
+//   [AUTO-GENERATED]
+//   ! DO NOT EDIT !
+//   
+// ····························
+*/
+
+#include <rgen/common/hash_combine.h> // для сравнений
+
+#include "{{ header_filename_full }}" // Полный путь к заголовочнику
+
+{% for class in classes %}
+
+{% if length(class.namespace_) > 0  %}
+namespace {{ class.namespace_ }} {
+{% endif %}
+
+uint qHash(const {{ class.name }}& name, uint iSeed)
+{
+    (void)name;
+    uint seed = iSeed;
+    rgen::qhash_combine(seed
+{% for field in class.fields %}
+    , name.{{ field.name }}
+{% endfor %}
+    );
+    return seed;
+}
+
+{% if length(class.namespace_) > 0  %}
+} // namespace {{ class.namespace_ }}
+{% endif %}
+
+{% endfor %}

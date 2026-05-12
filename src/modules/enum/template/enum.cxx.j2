@@ -1,0 +1,75 @@
+/* ····························
+//     _ __ __ _  ___ _ __    
+//    | '__/ _` |/ _ \ '_ \
+//    | | | (_| |  __/ | | |  
+//    |_|  \__, |\___|_| |_|  
+//         |___/              
+// ····························
+//   
+//   module:          Enum
+//   source:          {{ header_filename_full }}
+//   module doc:      https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/src/modules/enum/Readme.md
+//   about rgen:      https://gitea.redkit-lab.work/redkit-lab/rgen/src/branch/master/README.md
+//
+//   [AUTO-GENERATED]
+//   ! DO NOT EDIT !
+//   
+// ····························
+*/
+
+#include <qglobal.h>
+
+#include <vector>
+#include <stdexcept>
+
+#include <rgen/enum.h>
+
+#include "{{ header_filename_full }}"
+
+namespace rgen {
+
+{% for enum in enums %}
+
+template<>
+Q_DECL_EXPORT {{ enum.name }} rgen::Enum<{{ enum.name }}>::fromString(std::string value, std::optional<{{ enum.name }}> defaultResult) {
+{%- for value in enum.values -%}
+    if (value == "{{ value.display }}") {
+        return {{ enum.name }}::{{ value.name }};
+    }
+{%- endfor -%}
+    if (defaultResult.has_value())
+        return defaultResult.value();
+    else
+        throw std::runtime_error("Can't parse value \"" + std::string{value} + "\" to enum type \"{{ enum.name }}\"");
+}
+
+template<>
+Q_DECL_EXPORT std::string rgen::Enum<{{ enum.name }}>::toString({{ enum.name }} value) {
+    (void)value;
+{%- for value in enum.values -%}
+    if(value == {{ enum.name }}::{{ value.name }}) {
+        return "{{ value.display }}";
+    }
+{%- endfor -%}
+
+// Если здесь снова возникнут проблемы - просто выпилить эту часть.
+#if defined(__GNUC__) || defined(__clang__)
+  __builtin_unreachable();
+#elif defined(_MSC_VER)
+  __assume(0);
+#endif
+}
+
+template<>
+Q_DECL_EXPORT std::vector<{{ enum.name }}> rgen::Enum<{{ enum.name }}>::values() {
+    static const std::vector<{{ enum.name }}> values{
+{%- for value in enum.values -%}
+        {{ enum.name }}::{{ value.name }},
+{%- endfor -%}
+    };
+    return values;
+}
+
+
+{% endfor %}
+} // namespace rgen
